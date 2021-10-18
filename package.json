@@ -1,0 +1,24 @@
+{
+  "name": "akzommerce",
+  "version": "1.0.0",
+  "description": "This is a  eCommerce website which is build using vanilla JS 😍",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshaj65/Akzommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akshaj65/Akzommerce/issues"
+  },
+  "homepage": "https://github.com/akshaj65/Akzommerce#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}

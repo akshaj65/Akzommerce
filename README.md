@@ -54,3 +54,35 @@ This is a  eCommerce website which is build using vanilla JS 😍
   > build parsedUrl and compare with routes
   > if route exists render it, else render Error404
   > create screens/Error404.js and render error message
+
+6. Create Node.JS Server
+  > run npm init in root jsamazona folder
+  > npm install express
+  > create server.js
+  > add start command as node backend/server.js
+  > require express
+  > move data.js from frontend to backend
+  > create route for /api/products
+  > return products in data.js
+  > run npm start
+
+7. Load Products From Backend
+  > edit HomeScreen.js
+  > make render async in HomeScreen.js
+  > fetch products from '/api/products' in render()
+  > make router() async and call await HomeScreen.render()
+  > use cors on backend as u cant fetch data from other link
+  > check the result
+
+8. Add Webpack
+  > cd frontend
+  > npm install -D webpack webpack-cli webpack-dev-server
+  > npm uninstall live-server
+  > "start": "webpack-dev-server --mode development --watch-content-base --open"
+  > move index.html, style.css and images to frontend folder
+  > rename app.js to index.js
+  > update index.html
+  > add "<script src="main.js"></script>" before </body> tag
+  > npm start
+  > npm install axios
+  > change fetch to axios in HomeScreen
