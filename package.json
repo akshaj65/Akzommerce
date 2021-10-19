@@ -4,7 +4,7 @@
   "description": "This is a  eCommerce website which is build using vanilla JS 😍",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "nodemon --watch  backend --exec babel-node backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,13 @@
   "homepage": "https://github.com/akshaj65/Akzommerce#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/preset-env": "^7.15.8"
   }
 }

@@ -86,3 +86,41 @@ This is a  eCommerce website which is build using vanilla JS 😍
   > npm start
   > npm install axios
   > change fetch to axios in HomeScreen
+
+9. Install Babel For ES6 Syntax
+  > npm install -D babel core, cli, node, preset-env
+  > Create .babelrc and set presets to @babel/preset-env
+  > npm install -D nodemon
+  > set start: nodemon --watch backend --exec babel-node backend/server.js
+  > convert require to import in server.js that is es5 to es6
+  > convert module.exports to export default
+  > npm start
+
+10. Enable Code Linting
+  > npm install -D eslint
+  > install VSCode eslint extension
+  > create .eslintrc and set module.exports for env to node
+  > Set VSCode setting for editor.codeActionsOnSave source.fixAll.eslint to true
+  > check result for linting error
+  > npm install eslint-config-airbnb-base and eslint-plugin-import
+  > set extends to airbnb-base
+  > set parserOptions to ecmaVersion 11 and sourceType to module
+  > set rules for no-console to 0 to ignore linting error
+
+11. Install VSCode Extension
+  > JavaScript (ES6) code snippets
+  > ES7 React/Redux/GraphQL/React-Native snippets
+  > Prettier - Code formatter
+  > HTML&LESS grammar injections
+
+12. Create Rating Component
+  > create components/Rating.js
+  > link to fontawesome.css in index.html
+  > create div.rating
+  > define Rating object with render()
+  > if !props.value return empty div
+  > else use fa fa-star, fa-star-half-o and fa-star-o
+  > last span for props.text || ''
+  > style div.rating, span and last span
+  > Edit HomeScreen
+  > Add div.product-rating and use Rating component
