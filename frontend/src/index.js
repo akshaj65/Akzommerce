@@ -16,7 +16,8 @@ const router = async () => {
         // console.log(parseUrl)
     const screen =routes[parseUrl]?routes[parseUrl]:Error404Screen;
     const main = document.getElementById("main-container");
-    main.innerHTML = await screen.render(); //reason this is await is that the hoemScreen is using async
+    main.innerHTML = await screen.render(); //reason this is await is that the homeScreen is using async
+    await screen.after_render();
 };
 window.addEventListener('load', router);
 window.addEventListener('hashchange',router);

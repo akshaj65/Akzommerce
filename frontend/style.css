@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    /* padding: 0; to remove default padding and mardin in the elements
+    margin: 0; */
 }
 html{
     font-size: 62.5%; /* 16px * 62.5% =10px =1 rem*/
@@ -15,6 +17,23 @@ a{
 }
 a:hover{
     color: #3b6f4f;
+}
+button{
+    font:1.6rem helvetica;
+    padding:1rem;
+    border:0.1rem #808080 solid;
+    border-radius: 0.5rem;
+    cursor:pointer;
+}
+button:hover{
+    border: 0.1rem #404040 solid;
+}
+button.primary{
+    background-color: #f0c040;
+}
+.fw{
+    /* full width */
+    width: 100%;
 }
 .grid-container{
     display: grid;
@@ -61,7 +80,7 @@ footer{
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
-    padding: 0;
+    padding: 0; /*ul has default padding of padding left of 40px and 16px of top and bottom*/
     margin: 0;
     justify-content: center;
 }
@@ -107,4 +126,53 @@ footer{
 .rating span:last-child{
     color: #444444;
     font-size: 1.4rem;
+}
+.content{
+    padding: 1rem;
+}
+/* Product Details */
+.details{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.details-image{
+    flex: 2 1 60rem;
+}
+.details-image img{
+    max-width: 60rem;
+    width: 100%;
+}
+.details-action,
+.details-info{
+    flex:1 1 30rem;
+}
+.details-action ul,
+.details-info ul{
+    padding: 0;
+    list-style: none;
+}
+.details-info h1{
+    font-size: 2rem;
+    margin: 0; /*h1 has margin around 13.4px*/
+}
+
+.details-action li,
+.details-info li{
+    margin-bottom: 1rem;
+}
+
+.details-action{
+    padding: 1rem;
+    border:0.1rem #808080 solid;
+    border-radius: 0.5rem;
+    background-color: #f8f8f8;
+    box-shadow: 1 1 1 1;
+}
+.details-action .success{
+    color: #40c040;
+}
+.details-action .error{
+    color: #c04040;
 }
