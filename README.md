@@ -3,14 +3,14 @@ This is a  eCommerce website which is build using vanilla JS 😍
 
 
 1. create folder structure
-  > create root folder as Akzommerce
-  > add frontend and backend folder
-  > create src folder in frontend
-  > create index.html with heading akzommerce in  src
-  > run npm init in frontend folder
-  > npm install live-server
-  > add start command in package.json as" live-server  src --verbose"
-  > run npm start
+  >> create root folder as Akzommerce
+  >> add frontend and backend folder
+  >> create src folder in frontend
+  >> create index.html with heading akzommerce in  src
+  >> run npm init in frontend folder
+  >> npm install live-server
+  >> add start command in package.json as" live-server  src --verbose"
+  >> run npm start
 
 2.Design Website 
   > create style.css
