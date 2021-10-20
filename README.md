@@ -3,7 +3,7 @@ This is a  eCommerce website which is build using vanilla JS 😍
 
 
 1. create folder structure
-  >> create root folder as Akzommerce
+  >> create root folder as Akzommerce\n
   >> add frontend and backend folder
   >> create src folder in frontend
   >> create index.html with heading akzommerce in  src
