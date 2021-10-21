@@ -22,6 +22,7 @@ export default {
         description:"nice Product",
         rating: 5,
         numReviews: 51,
+        countInStock: 2,
       },
       {
         _id: '3',
@@ -33,6 +34,7 @@ export default {
         description:"Good Product",
         rating: 4,
         numReviews: 45,
+        countInStock: 1,
       },
       {
         _id: '4',
@@ -44,7 +46,7 @@ export default {
         description:"nice Product",
         rating: 2.5,
         numReviews: 198,
-        countInStock: 6,
+        countInStock: 3,
       },
       {
         _id: '5',
@@ -56,7 +58,7 @@ export default {
         description:"Good Product",
         rating: 3.5,
         numReviews: 89,
-        countInStock: 6,
+        countInStock: 4,
       },
       {
         _id: '6',
@@ -68,7 +70,7 @@ export default {
         description:"nice Product",
         rating: 4.5,
         numReviews: 45,
-        countInStock: 6,
+        countInStock: 8,
       },
     ],
   };

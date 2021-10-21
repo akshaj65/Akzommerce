@@ -124,3 +124,44 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * style div.rating, span and last span
   * Edit HomeScreen
   * Add div.product-rating and use Rating component
+
+13. Product Screen
+  * get product id from request
+  * implement /api/product/:id api
+  * send Ajax request to product api
+
+14. Product Screen UI
+  * create back to result link
+  * create div.details with 3 columns
+  * column 1 for product image
+  * column 2 for product information
+  * column 3 form product action
+  * style .details and all columns
+  * create add to cart button with add-button id
+
+15. Product Screen Action
+  * after_render() to add event to the button
+  * add event handler for the button
+  * redirect user to cart/:product_id
+  * implement after_render in index.js
+
+16. Add To Cart Action
+  * create CartScreen.js
+  * get the product id using parseRequestUrl
+  * use the getProduct(request.id) in api.js to get the product details
+  * create an addToCart function
+  * create a func getCartItems which searches in local storage
+  * cartItems.find (check for existing item in the local storage)
+  * if existItem we create a map in cartItems so duplicate will be ignored
+  * else add item using spread operator
+  * create a func setCartItems which stores the updated cartItems to local
+
+17.Cart Screen UI
+  * cartItems = getCartItems()
+  * create 2 columns for cart items and cart action
+  * cartItems.length === 0 ? cart is empty
+  * show item image, name, qty and price
+  * cart action
+  * Subtotal
+  * Proceed to Checkout button
+  * Add CSS Style
