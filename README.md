@@ -165,3 +165,22 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * Subtotal
   * Proceed to Checkout button
   * Add CSS Style
+
+18.Update and Delete Cart Items
+  * add qty select next to each item
+  * implementing after_render()
+  * add change event to qty select
+  * getCartItems() and pass to addToCart()
+  * set force to true to addToCart()
+  * create rerender() which has  (component) as parameter
+  * component.render and component.after_render
+  * if force is true then rerender()
+  * add delete button next to each item
+  * add click event to qty button
+  * call removeFromCart(deleteButton.id)
+  * implement removeFromCart(id)
+  * setCartItems( getCartItems().filter)
+  * if id === parseRequestUrl().id? redirect to '/cart'
+  * else rerender(CartScreen);
+  * created event listner for checkout-button which redirects to signin url
+
