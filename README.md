@@ -184,3 +184,14 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * else rerender(CartScreen);
   * created event listner for checkout-button which redirects to signin url
 
+19. Connect To MongoDB and Create Admin User
+  * npm install mongoose
+  * connect to mongodb
+  * create config.js
+  * npm install dotenv
+  * export MONGODB_URL
+  * create models/userModel.js
+  * create userSchema and userModel
+  * create userRoute
+  * create createadmin route
+
