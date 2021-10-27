@@ -15,13 +15,13 @@ mongoose
       console.log(`Mongodb Connected  with ${data.connection.host}`);
     })
     .catch((error)=>{
-      console.log(error);
+      console.log(error.message);
     });
 
 const app = express();
 
 app.use(cors());//use cors on backend as u cant fetch data from other link
-
+app.use(express.json()) //json data is sent to the body so its used no need of bodyparser
 app.use('/api/users',userRouter);
 app.get("/api/products", (req, res) => {
     res.send(data.products)
@@ -35,7 +35,12 @@ app.get('/api/products/:id', (req, res) => {
   }
 });
 
-
+app.use((err,req,res,next)=>{ //for handling all errors in express application (middleware)
+  const status = err.name && err.name === 'ValidationError'?400:500;
+  res.status(status).json({
+    message:err.message
+  })
+})
 app.listen(5000, () => {
     console.log("server running at http://localhost:5000")
 })

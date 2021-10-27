@@ -33,7 +33,7 @@ const removeFromCart=(id)=>{
     }
 }
 const CartScreen = {
-    after_render: () => {
+    after_render:  () => {
         const qtySelects = document.getElementsByClassName("qty-select");
         Array.from(qtySelects).forEach(qtySelect => {
             qtySelect.addEventListener("change", (e) => {
@@ -49,7 +49,7 @@ const CartScreen = {
         });
         document.getElementById("checkout-button").addEventListener('click',()=>{
             document.location.hash='/signin';
-        })
+        });
     },
     render: async () => {
         const request = parseRequestUrl();

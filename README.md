@@ -15,7 +15,7 @@ This is a  eCommerce website which is build using vanilla JS 😍
 2.Design Website 
   * create style.css
   * link style.css to index.css
-  * create div.grif=d-container
+  * create div.grid-container
   * create header , main and footer
   * style html ,body
   * style grid-container, header, main and footer
@@ -82,7 +82,7 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * move index.html, style.css and images to frontend folder
   * rename app.js to index.js
   * update index.html
-  * add "<script src="main.js"*</script*" before </body* tag
+  * add "<script src="main.js"</script>" before </body> tag
   * npm start
   * npm install axios
   * change fetch to axios in HomeScreen
@@ -195,3 +195,33 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * create userRoute
   * create createadmin route
 
+20. Sign-in Screen UI
+  * create SigninScreen
+  * render email and password fields
+  * style signin form
+
+21. Sign-in Screen Backend
+  * create signin api in backend
+  * create route for /api/users/signin
+  * create check user name and password
+  * if it is not ok the return 401 error
+  * install express-async-handler
+  * wrap it in expressAsyncHandler
+  * add error middleware in server.js
+  * install Postman
+  * send post request
+  * test with invalid user password
+  * otherwise generate token
+  * install jsonwebtoken
+  * set config.JWT_SECRET to somethingsecret
+  * add generateToken to utils.js
+  * return token
+  * test with correct user and password
+
+  22. Sign-in Screen Action
+  * after_render handle form submit
+  * create signin request in frontend
+  * show alert if email or password is incorrect
+  * Add getUserInfo and setUserInfo to localStorage
+  * create Header component
+  * if userInfo.email exist show user name otherwise show signin
