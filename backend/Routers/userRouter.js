@@ -4,7 +4,8 @@ import User from "../models/userModel";
 import { generateToken } from "../utils";
 const userRouter =express.Router();
 
-userRouter.get("/createadmin",
+userRouter.get(
+    "/createadmin",
     expressAsyncHandler( async (req,res)=>{
         try{
             const user=new User({
@@ -22,8 +23,9 @@ userRouter.get("/createadmin",
         }
     })
 );
-userRouter.post('/signin', 
-  expressAsyncHandler( async (req,res)=>{
+userRouter.post(
+    '/signin', 
+    expressAsyncHandler( async (req,res)=>{
         const signinUser= await User.findOne({
             email:req.body.email,
             password: req.body.password
@@ -39,6 +41,30 @@ userRouter.post('/signin',
                 email:signinUser.email,
                 isAdmin:signinUser.isAdmin,
                 token:generateToken(signinUser),
+            });
+        }
+    })
+);
+userRouter.post(
+    '/register', 
+    expressAsyncHandler( async (req,res)=>{
+        const user =new User({
+            name:req.body.name,
+            email:req.body.name,
+            password:req.body.password,
+        });
+        const createdUser= await user.save();
+        if(!createdUser){
+            res.status(401).send({
+                message:"Invalid User data",
+            });
+        }else{
+            res.send({
+                _id:createdUser._id,
+                name:createdUser.name,
+                email:createdUser.email,
+                isAdmin:createdUser.isAdmin,
+                token:generateToken(createdUser),
             });
         }
     })

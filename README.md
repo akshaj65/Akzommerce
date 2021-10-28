@@ -218,10 +218,33 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * return token
   * test with correct user and password
 
-  22. Sign-in Screen Action
+22. Sign-in Screen Action
   * after_render handle form submit
   * create signin request in frontend
   * show alert if email or password is incorrect
   * Add getUserInfo and setUserInfo to localStorage
   * create Header component
   * if userInfo.email exist show user name otherwise show signin
+
+23. Create Progress Indicator and Alert Component
+  * create overlay loading div in index.html
+  * Style overlay loading
+  * create showLoading() function
+  * set loading-overlay classList add active
+  * create hideLoading() function
+  * create overlay message div in index.html
+  * add style overlay message
+  * create showMessage(message, callback)
+  * document message-overlay set inner HTML
+  * div > div id message-overlay-content
+  * show message
+  * button id message-overlay-close-button OK
+  * add class active to it
+  * add event listener for button to call callback
+  
+24. Register Screen
+  * create RegisterScreen.js
+  * add form elements
+  * after_render handle form submit
+  * create register request in frontend
+  * create register api in backend
