@@ -257,3 +257,14 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * create profile update api in backend
   * create isAuth in utils.js and use in update profile
   * implement sign out
+
+26. Checkout Wizard
+  * create CheckoutSteps.js
+  * create div elements for step 1 to 4
+  * create redirectUser() in utils.js
+  * copy profile screen and as shipping screen
+  * use CheckoutSteps
+  * define getShipping and setShipping
+  * copy shipping screen and as payment screen
+  * define  setPayment
+  * redirect user to PlaceOrder.js       
