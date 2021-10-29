@@ -248,3 +248,12 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * after_render handle form submit
   * create register request in frontend
   * create register api in backend
+
+25. User Profile Screen
+  * create ProfileScreen.js
+  * add form elements
+  * after_render handle form submit
+  * create profile update request in frontend
+  * create profile update api in backend
+  * create isAuth in utils.js and use in update profile
+  * implement sign out

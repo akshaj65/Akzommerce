@@ -6,6 +6,7 @@ import CartScreen from "./screens/CartScreen.js";
 import SigninScreen from "./screens/SigninScreen.js";
 import Header from "./components/Header.js";
 import RegisterScreen from "./screens/RegisterScreen.js";
+import ProfileScreen from "./screens/ProfileScreen.js";
 
 const routes = {
     "/": HomeScreen,
@@ -14,6 +15,7 @@ const routes = {
     "/cart":CartScreen,
     "/signin":SigninScreen,
     "/register":RegisterScreen,
+    "/profile":ProfileScreen,
 }
 const router = async () => {
     showLoading();
@@ -29,7 +31,7 @@ const router = async () => {
     await Header.after_render();
     const main = document.getElementById("main-container");
     main.innerHTML = await screen.render(); //reason this is await is that the homeScreen is using async
-    await screen.after_render();
+    if(screen.after_render) await screen.after_render();
     hideLoading();
 };
 window.addEventListener('load', router);

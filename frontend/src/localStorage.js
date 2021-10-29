@@ -10,10 +10,11 @@ export const setCartItems =(cartItems)=>{
 }
 
 export const setUserInfo =({
-    _id	= '',
+    _id	    = '',
     name	= '',
     email	= '',
     password = '',
+    token    ='',
     isAdmin	= false,
 })=>{
     localStorage.setItem(
@@ -23,11 +24,15 @@ export const setUserInfo =({
         name,
         email,
         password,
+        token,
         isAdmin	,
       })
     );
 };
-
+export const clearUser =()=>{
+     localStorage.removeItem('userInfo')
+   
+}
 export const getUserInfo =()=>{
     return localStorage.getItem('userInfo')
     ?JSON.parse(localStorage.getItem('userInfo'))
