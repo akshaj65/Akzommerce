@@ -268,3 +268,14 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * copy shipping screen and as payment screen
   * define  setPayment
   * redirect user to PlaceOrder.js       
+
+27. PlaceOrder Screen UI
+  * create PlaceOrder.js
+  * style elements
+
+28. PlaceOrder Screen Action
+  * handle place order button click
+  * createOrder api
+  * create orderModel
+  * create orderRouter
+  * create post order route
