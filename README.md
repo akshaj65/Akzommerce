@@ -279,3 +279,7 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * create orderModel
   * create orderRouter
   * create post order route
+
+29. Order Screen
+  * create OrderScreen.js
+  * style elements

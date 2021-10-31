@@ -5,6 +5,14 @@ import { isAuth } from '../utils';
 
 const orderRouter = express.Router();
 
+orderRouter.get('/:id',isAuth, expressAsyncHandler(async (req,res)=>{
+    const order= await Order.findById(req.params.id);
+    if(order){
+        res.send(order);
+    } else{
+        res.status(404).send({message:'Order Not found'})
+    }
+}))
 orderRouter.post(
     '/',
     isAuth,
@@ -13,13 +21,13 @@ orderRouter.post(
             orderItems:req.body.orderItems,
             user:req.user._id,
             shipping:req.body.shipping,
+            payment: req.body.payment,
             itemsPrice:req.body.itemsPrice,
             taxPrice:req.body.taxPrice,
             shippingPrice:req.body.shippingPrice,
             totalPrice:req.body.totalPrice,
         });
         const createdOrder =await order.save();
-        console.log(createdOrder)
         res.status(201).send({
             message: "New order Created",order:createdOrder
         })

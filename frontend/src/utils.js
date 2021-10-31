@@ -19,14 +19,17 @@ export const rerender = async (component) => {
 
 export const showLoading =()=>{
     document.getElementById(
-        "loading-overlay"
+        "loading"
     ).classList.add('active');
+    document.getElementById("loading-overlay").classList.add('active');
 };
 
 export const hideLoading =()=>{
     document.getElementById(
-        "loading-overlay"
+        "loading"
     ).classList.remove('active');
+    document.getElementById("loading-overlay").classList.remove('active');
+
 };
 
 export const showMessage =(message,callback)=>{
