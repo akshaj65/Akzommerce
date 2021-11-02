@@ -25,6 +25,9 @@ app.use(cors());//use cors on backend as u cant fetch data from other link
 app.use(express.json()) //json data is sent to the body so its used no need of bodyparser
 app.use('/api/users',userRouter);
 app.use('/api/orders',orderRouter)
+app.get('/api/paypal/clientId',(req,res)=>{
+  res.send({clientId : config.PAYPAL_CLIENT_ID});
+})
 app.get("/api/products", (req, res) => {
     res.send(data.products)
 });

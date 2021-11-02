@@ -283,3 +283,22 @@ This is a  eCommerce website which is build using vanilla JS 😍
 29. Order Screen
   * create OrderScreen.js
   * style elements
+
+30. PayPal Payment
+  * get client id from paypal
+  * set it in .env file
+  * create route form /api/paypal/clientId
+  * create getPaypalClientID in api.js
+  * add paypal checkout script in OrderScreen.js
+  * show paypal button
+  * update order after payment
+  * create payOrder in api.js
+  * create route for /:id/pay in orderRouter.js
+  * rerender after pay order
+
+31. Display Orders History
+  * create customer orders api
+  * create api for getMyOrders
+  * show orders in profile screen
+  * style orders
+  

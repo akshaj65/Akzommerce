@@ -28,7 +28,7 @@ export const signin =expressAsyncHandler( async ({email,password}) =>{
         const response= await axios({
             url:`${apiUrl}/api/users/signin`,
             method:"POST",
-            header:{
+            headers:{
                 'Content-Type': 'application/json'
             },
             data:{
@@ -52,7 +52,7 @@ export const register =expressAsyncHandler( async ({name,email,password}) =>{
         const response= await axios({
             url:`${apiUrl}/api/users/register`,
             method:"POST",
-            header:{
+            headers:{
                 'Content-Type': 'application/json'
             },
             data:{
@@ -136,9 +136,63 @@ export const getOrder =async (id) =>{
         if(response.statusText !=='OK'){
             throw new Error(response.data.message);
         }
-       
         return response.data;
     }catch(err){
         return {error:err.message}
     }
-}
+};
+
+export const getMyOrders =async ()=>{
+    try{
+        const {token} =getUserInfo();
+        const response = await axios({
+            url:`${apiUrl}/api/orders/mine`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':`Bearer ${token}`,
+            },
+        });
+        if(response.statusText !== 'OK'){
+            throw new Error(response.data,message);
+        }
+        return response.data;
+    }catch(err){
+        return {error:err.response?err.response.data.message :err.message}
+    }
+};
+
+export const getPaypalClientId =async () =>{
+    const response = await axios({
+        url:`${apiUrl}/api/paypal/clientId`,
+        headers:{
+            'Content-Type':'applicatiom/json',
+        },
+        
+    });
+    if(response.statusText !=='OK'){
+        throw new Error(response.data.message);
+    }
+    return response.data.clientId;
+};
+
+export const payOrder = async (orderId,paymentResult)=>{
+    try{
+        const {token}=  getUserInfo();
+        const response = await axios({
+            url:`${apiUrl}/api/orders/${orderId}/pay`,
+            method:'PUT',
+            headers:{
+                'Content-Type' :'application/json',
+                'Authorization':`Bearer ${token}`,
+            },
+            data:paymentResult
+        });
+        if(response.statusText !== 'OK'){
+            throw new Error(response.data.message);
+        }
+        return response.data;
+    }catch (err) {
+        return {error:err.response?err.response.data.message :err.message}
+    }
+};
+
