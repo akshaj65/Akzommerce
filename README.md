@@ -302,3 +302,27 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * show orders in profile screen
   * style orders
   
+32. Admin Dashboard UI
+  * Header.js
+  * if user is admin show Dashboard
+  * create DashboardScreen
+  * craete dashboardMenu
+  * Style dashboard
+
+33. Admin Products UI
+  * create ProductListScreen.js
+  * show products with edit and delete button
+  * show create product button
+
+34. Create Product
+  * create product model
+  * implement create product route
+  * create product function in api.js
+  * call create product function in ProductListScreen
+  * redirect to edit product
+
+35. Edit Product UI
+  * create ProductEditScreen.js
+  * load product data from backend
+  * handle form submit
+  * save product in backend

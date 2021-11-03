@@ -1,6 +1,6 @@
 import { getUserInfo, setUserInfo } from "../localStorage";
 import { hideLoading, showLoading, showMessage } from "../utils";
-import { register } from "./api";
+import { register } from "../api";
 
 const RegisterScreen ={
     after_render: ()=>{

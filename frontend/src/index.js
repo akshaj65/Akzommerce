@@ -11,9 +11,13 @@ import ShippingScreen from "./screens/ShippingScreen.js";
 import PaymentScreen from "./screens/PaymentScreen.js";
 import PlaceOrderScreen from "./screens/PLaceOrderScreen.js";
 import OrderScreen from "./screens/OrderScreen.js";
+import DashboardScreen from "./screens/DashboardScreen.js";
+import ProductListScreen from "./screens/ProductListScreen.js";
+import ProductEditScreen from "./screens/ProductEditScreen.js";
 
 const routes = {
     "/": HomeScreen,
+    '/product/:id/edit': ProductEditScreen,
     "/product/:id": ProductScreen,
     "/order/:id": OrderScreen,
     "/cart/:id":CartScreen,
@@ -24,15 +28,18 @@ const routes = {
     "/shipping":ShippingScreen,
     "/payment":PaymentScreen,
     "/placeorder":PlaceOrderScreen,
+    "/dashboard":DashboardScreen,
+    "/productlist":ProductListScreen,
 }
 const router = async () => {
     showLoading();
     const request = parseRequestUrl();
-    // console.log(request)
-    const parseUrl = (request.resource ? `/${request.resource}` : '/') +
+    console.log(request)
+    const parseUrl = 
+        (request.resource ? `/${request.resource}` : '/') +
         (request.id ? '/:id' : '') +
         (request.verb ? `/${request.verb}` : '');
-        // console.log(parseUrl)
+        console.log(parseUrl)
     const screen =routes[parseUrl]?routes[parseUrl]:Error404Screen;
     const header =document.getElementById('header-container');
     header.innerHTML= await Header.render();

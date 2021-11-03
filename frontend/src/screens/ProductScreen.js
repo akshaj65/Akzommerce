@@ -1,5 +1,5 @@
 import { parseRequestUrl } from '../utils'
-import { getProduct } from './api';
+import { getProduct } from '../api';
 import  Rating  from "../components/Rating";
 
 const ProductScreen = {

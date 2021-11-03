@@ -1,5 +1,5 @@
 import { hideLoading, parseRequestUrl, rerender, showLoading, showMessage} from '../utils'
-import {  getOrder, getPaypalClientId, payOrder } from './api';
+import {  getOrder, getPaypalClientId, payOrder } from '../api';
 
 const addPaypalSdk = async (totalPrice) =>{
     const clientId = await getPaypalClientId();

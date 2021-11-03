@@ -1,6 +1,6 @@
 import { getUserInfo, setUserInfo } from "../localStorage";
 import { hideLoading, redirectUser, showLoading, showMessage } from "../utils";
-import { signin } from "./api";
+import { signin } from "../api";
 
 const SigninScreen ={
     after_render: ()=>{

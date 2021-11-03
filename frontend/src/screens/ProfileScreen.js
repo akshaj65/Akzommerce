@@ -1,6 +1,6 @@
 import { clearUser, getUserInfo, setUserInfo } from "../localStorage";
 import { hideLoading, showLoading, showMessage } from "../utils";
-import { getMyOrders, update } from "./api";
+import { getMyOrders, update } from "../api";
 
 const ProfileScreen ={
     after_render: ()=>{

@@ -1,7 +1,7 @@
 import { cleanCart, getCartItems, getPayment, getShipping } from '../localStorage';
 import CheckoutSteps from '../components/CheckoutSteps'
 import {showLoading ,hideLoading, showMessage} from '../utils'
-import { createOrder } from './api';
+import { createOrder } from '../api';
 
 const convertCartToOrder =()=>{
     const orderItems =getCartItems();
