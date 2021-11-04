@@ -325,4 +325,34 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * create ProductEditScreen.js
   * load product data from backend
   * handle form submit
+  * save product in backend 
+36. Edit Product Backend
+  * handle form submit
+  * create updateProduct
   * save product in backend
+37. Upload Product Image
+  * npm install multer
+  * create routes/uploadRoute.js
+  * import express and multer
+  * create disk storage with Date.now().jpg as filename
+  * set upload as multer({ storage })
+  * router.post('/', upload.single('image'))
+  * return req.file.path
+  * app.use('/api/uploads',uploadRoute) in server.js
+  * create uploads folder and put empty file.txt there.
+  * ProductEditScreen.js
+  * create file input and set id to image-file
+  * after_render() handle image-file change
+  * create form data
+  * call uploadProductImage()
+  * create uploadProductImage in api.js
+  * update server.js
+
+38. Build Project
+  * create build script for frontend
+  * create build script for backend
+  * update sever.js to serve frontend build folder and uploads folder
+  * stop running frontend
+  * npm run build
+  * check localhost:5000 for running website and showing images
+

@@ -1,11 +1,12 @@
 import express from 'express';
 import cors from 'cors';
-import data from './data';
+import path from 'path';
 import mongoose from 'mongoose';
 import config from './config';
 import userRouter from './Routers/userRouter';
 import orderRouter from './Routers/orderRouter';
 import productRouter from './Routers/productRouter';
+import uploadRouter from './Routers/uploadRouter';
 
 
 mongoose
@@ -24,12 +25,19 @@ const app = express();
 
 app.use(cors());//use cors on backend as u cant fetch data from other link
 app.use(express.json()) //json data is sent to the body so its used no need of bodyparser
+app.use('/api/uploads',uploadRouter);
 app.use('/api/users',userRouter);
 app.use('/api/products',productRouter);
 app.use('/api/orders',orderRouter)
 app.get('/api/paypal/clientId',(req,res)=>{
   res.send({clientId : config.PAYPAL_CLIENT_ID});
-})
+});
+
+app.use('/uploads',express.static(path.join(__dirname,'/../uploads')));
+app.use(express.static(path.join(__dirname,'/../frontend')));
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'/../frontend/index.html'));
+});
 
 app.use((err,req,res,next)=>{ //for handling all errors in express application (middleware)
   const status = err.name && err.name === 'ValidationError'?400:500;

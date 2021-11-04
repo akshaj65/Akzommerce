@@ -93,7 +93,7 @@ const ProfileScreen ={
                             <tr>
                                 <td>${order._id}</td>
                                 <td>${order.createdAt}</td>
-                                <td>${order.totalPrice}</td>
+                                <td>₹ ${order.totalPrice}</td>
                                 <td>${order.paidAt || 'No'}</td>
                                 <td>${order.deliveredAt || 'No'}</td>
                                 <td><a href="/#/order/${order._id}">Details</a></td>

@@ -1,8 +1,46 @@
-import { getProduct } from "../api";
-import { parseRequestUrl } from "../utils"
+import { getProduct, updateProduct, uploadProductImage } from "../api";
+import { hideLoading, parseRequestUrl, showLoading, showMessage } from "../utils"
 
 const ProductEditScreen =  {
-   after_render:()=>{ },
+   after_render:()=>{
+       const request =parseRequestUrl();
+       document.getElementById('edit-product-form')
+       .addEventListener('submit',async (e)=>{
+           e.preventDefault();
+           showLoading();
+           const data =await updateProduct({
+               _id:request.id,
+               name: document.getElementById('name').value,
+               price: document.getElementById('price').value,
+               image: document.getElementById('image').value,
+               brand: document.getElementById('brand').value,
+               category: document.getElementById('category').value,
+               countInStock: document.getElementById('countInStock').value,
+               description: document.getElementById('description').value,
+           });
+           hideLoading();
+           if(data.error){
+               showMessage(data.error);
+           } else{
+               document.location.hash= '/productlist';
+           }
+       });
+       document.getElementById('image-file')
+       .addEventListener('change',async (e)=>{
+            const file= e.target.files[0];
+            const formData =new FormData();
+            formData.append('image',file);
+            showLoading();
+            const data =await uploadProductImage(formData);
+            hideLoading();
+            if(data.error){
+                showMessage(data.error);;
+            } else{
+                showMessage('Image uploaded Successfully');
+                document.getElementById('image').value =data.image;
+            }
+       });
+    },
    render: async ()=>{
      const request =parseRequestUrl();
      const product = await getProduct(request.id);
@@ -34,11 +72,13 @@ const ProductEditScreen =  {
                             <input type="text" name="image" value="${
                                 product.image
                             }" id="image" />
+                            <input type="file" name="image-file" id="image-file" />
+                            
                         </li>
-                        <li>
+                         <li>
                             <label for="brand">Brand</label>
                             <input type="text" name="brand" value="${
-                                product.brand
+                                    product.brand
                             }" id="brand" />
                         </li>
                         <li>
