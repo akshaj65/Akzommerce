@@ -45,6 +45,6 @@ app.use((err,req,res,next)=>{ //for handling all errors in express application (
     message:err.message
   })
 })
-app.listen(5000, () => {
+app.listen(config.PORT, () => {
     console.log("server running at http://localhost:5000")
 })

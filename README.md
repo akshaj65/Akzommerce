@@ -356,3 +356,54 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * npm run build
   * check localhost:5000 for running website and showing images
 
+39. Delete Product
+  * update ProductListScreen.js
+  * handle delete button
+  * rerender after deletion
+
+40. Admin Orders
+  * create Admin Order menu in header
+  * create AdminOrder.js
+  * load orders from backend
+  * list them in the screen
+  * show delete and edit button
+  * redirect to order details on edit action
+
+41. Deliver Order
+  * if order is payed show deliver button for admin
+  * handle click on deliver button
+  * set state to delivered
+
+42. Show Summary Report in Dashboard
+  * create summary section
+  * style summary
+  * create summary backend
+  * create getSummary in api.js
+  * load data in dashboard screen
+
+43. Show Chart in Dashboard
+  * import chartist
+  * add chartist css to index.html
+  * create linear chart for daily sales
+  * create pie chart for product categories
+
+44. Publish heroku
+  * Create git repository
+  * Create heroku account
+  * install Heroku CLI
+  * heroku login
+  * heroku apps:create jsamazona
+  * Edit package.json for heroku-prebuild
+  * Edit package.json for heroku-postbuild
+  * Edit package.json for node engines
+  * Create Procfile
+  * Edit server.js for PORT
+  * Create mongodb atlas database
+  * create MongoDB Account
+  * open cloud.mongodb.com
+  * add new user and save username and password
+  * set Network Access to accept all requests
+  * Create new database
+  * create connection string based on db name and user and password
+  * Set Cloud MongoDB connection in heroku env variables
+  * Commit and push
