@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "This is a  eCommerce website which is build using vanilla JS 😍",
   "main": "index.js",
-   "type":"module",
   "scripts": {
     "start": "nodemon --watch  backend --exec babel-node backend/server.js",
     "build": "rm -rf dest && babel backend -d dist",

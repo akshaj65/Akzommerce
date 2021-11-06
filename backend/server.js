@@ -32,11 +32,12 @@ app.use('/api/orders',orderRouter)
 app.get('/api/paypal/clientId',(req,res)=>{
   res.send({clientId : config.PAYPAL_CLIENT_ID});
 });
-
-app.use('/uploads',express.static(path.join(__dirname,'/../uploads')));
-app.use(express.static(path.join(__dirname,'/../frontend')));
+const __dirname =path.resolve();
+console.log(__dirname);
+app.use('/uploads',express.static(path.join(__dirname,'/uploads')));
+app.use(express.static(path.join(__dirname,'/frontend')));
 app.get('*',(req,res)=>{
-  res.sendFile(path.join(__dirname,'/../frontend/index.html'));
+  res.sendFile(path.join(__dirname,'/frontend/index.html'));
 });
 
 app.use((err,req,res,next)=>{ //for handling all errors in express application (middleware)
