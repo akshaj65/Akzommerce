@@ -15,6 +15,7 @@ import DashboardScreen from "./screens/DashboardScreen.js";
 import ProductListScreen from "./screens/ProductListScreen.js";
 import ProductEditScreen from "./screens/ProductEditScreen.js";
 import OrderListScreen from "./screens/OrderListScreen.js";
+import Aside from "./components/Aside.js";
 
 const routes = {
     "/": HomeScreen,
@@ -43,9 +44,14 @@ const router = async () => {
         (request.verb ? `/${request.verb}` : '');
         // console.log(parseUrl)
     const screen =routes[parseUrl]?routes[parseUrl]:Error404Screen;
+    
     const header =document.getElementById('header-container');
     header.innerHTML= await Header.render();
     await Header.after_render();
+
+    const aside= document.getElementById('aside-container');
+    aside.innerHTML=await Aside.render();
+    await Aside.after_render();
     const main = document.getElementById("main-container");
     main.innerHTML = await screen.render(); //reason this is await is that the homeScreen is using async
     if(screen.after_render) await screen.after_render();

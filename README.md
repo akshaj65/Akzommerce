@@ -407,3 +407,21 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * create connection string based on db name and user and password
   * Set Cloud MongoDB connection in heroku env variables
   * Commit and push
+
+45. Product Search Bar
+  * create search bar in Header.js
+  * add style
+  * handle submit form
+  * edit parse url to get query string
+  * update product list api for search keyword
+
+46. Show Categories In Sidebar Menu
+  * create aside-open-button in Header.js
+  * add event to open aside
+  * create Aside.js component
+  * Add style aside
+  * after render close it on click on close button
+  * Use it in index.html
+  * Update index.js to render aside 9.
+  * call getCategories
+  * create getCategories in api.js

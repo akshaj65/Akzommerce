@@ -3,10 +3,12 @@ import { apiUrl } from "./config"
 import expressAsyncHandler from 'express-async-handler'
 import { getUserInfo } from "./localStorage";
 
-export const getProducts =async ()=>{
+export const getProducts =async ({searchKeyword=''})=>{
     try{
+        let queryString='?';
+        if(searchKeyword) queryString+=`searchKeyword=${searchKeyword}&`;
         const response =await axios({
-            url: `${apiUrl}/api/products`,
+            url: `${apiUrl}/api/products${queryString}`,
             method:  'GET',
             headers:{
                 'Content-Type': 'application/json'
