@@ -40,12 +40,11 @@ const ProductScreen = {
                 .addEventListener('submit',async(e)=>{
                     e.preventDefault();
                     showLoading();
-                    console.log(document.getElementById('rating').value);
                     const data = await editReview(request.id,{
                         comment: document.getElementById('comment').value,
                         rating: document.getElementById('rating').value,
                     });
-                    console.log(data);
+                    // console.log(data);
                     hideLoading();
                     if(data.error){
                        showMessage(data.error)

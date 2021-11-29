@@ -99,7 +99,7 @@ export const editReview = async (productId,{rating,comment})=>{
                 comment
             },
         });
-        console.log(response.data);
+        // console.log(response.data);
         if(response.statusText !== 'OK'){
             throw new Error(response.data.message);
         }
