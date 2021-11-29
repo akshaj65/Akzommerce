@@ -4,7 +4,6 @@ export const parseRequestUrl = () => {
     const queryString=document.location.hash.slice(1).split('?').length === 2
     ?document.location.hash.slice(1).split('?')[1]
     :'';
-    console.log(address);
     const url= address.toLowerCase() || '/';
     const r =url.split('/');
     const q=queryString.split('=');

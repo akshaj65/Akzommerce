@@ -91,5 +91,74 @@ productRouter.delete(
         }
     })
 );
+productRouter.post(
+    '/:id/reviews',
+    isAuth,
+    expressAsyncHandler(async (req,res)=>{
+        const product = await Product.findById(req.params.id);
+        if(product){
+            const review ={
+                rating: req.body.rating,
+                comment:req.body.comment,
+                user: req.user._id,
+                name: req.user.name,
+            };
+            product.reviews.push(review);
+            product.rating=
+                product.reviews.reduce((a,c)=> c.rating+a ,0) /
+                product.reviews.length;
+            product.numReviews=product.reviews.length;
+            const updatedProduct= await product.save();
+            res.status(201).send({
+                message:'Comment Created',
+                data:updatedProduct.reviews[updatedProduct.reviews.length-1],
+            });
+        } else {
+            throw new Error('Product does not exist');
+        }
+    })
+);
+productRouter.put(
+    '/:id/reviews',
+    isAuth,
+    expressAsyncHandler(async (req,res)=>{
+        const editReview = await Product.findOneAndUpdate({"_id":req.params.id,"reviews.name":req.user.name},{$set:{"reviews.$.comment":req.body.comment,"reviews.$.rating":req.body.rating}},{new:true});
+        console.log(editReview);
+        if(editReview){
+
+            editReview.rating=
+                editReview.reviews.reduce((a,c)=> c.rating+a ,0) /
+                editReview.reviews.length;
+            editReview.numReviews=editReview.reviews.length;
+
+            const updatedProduct= await editReview.save();
+            res.send({
+                message:'Comment Editted',
+                data:updatedProduct.reviews[updatedProduct.reviews.length-1],
+            });
+        } else {
+            throw new Error('Product does not exist');
+        }
+    })
+);
+productRouter.delete(
+    '/:id/reviews',
+    isAuth,
+    expressAsyncHandler(async (req,res)=>{
+        const product= await Product.findById(req.params.id)
+        let removedreview=await Product.findOneAndUpdate({"_id":req.params.id},{"$pull":{"reviews":{"_id":req.body._id}}});
+        if(product && removedreview){   
+            removedreview.numReviews=removedreview.reviews.length;
+            const updatedProduct= await removedreview.save();
+            res.send({
+                message:'Comment Deleted',
+                data:updatedProduct.reviews[updatedProduct.reviews.length-1],
+            });
+        } else {
+            throw new Error('Product does not exist');
+        }
+    })
+);
+
 
 export default productRouter;

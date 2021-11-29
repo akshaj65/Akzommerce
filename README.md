@@ -425,3 +425,9 @@ This is a  eCommerce website which is build using vanilla JS 😍
   * Update index.js to render aside 9.
   * call getCategories
   * create getCategories in api.js
+  
+47. Review Products
+  * create review model
+  * create review form
+  * create review api
+  * style review form

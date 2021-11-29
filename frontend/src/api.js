@@ -3,7 +3,7 @@ import { apiUrl } from "./config"
 import expressAsyncHandler from 'express-async-handler'
 import { getUserInfo } from "./localStorage";
 
-export const getProducts =async ({searchKeyword=''})=>{
+export const getProducts =expressAsyncHandler (async ({searchKeyword=''})=>{
     try{
         let queryString='?';
         if(searchKeyword) queryString+=`searchKeyword=${searchKeyword}&`;
@@ -21,7 +21,7 @@ export const getProducts =async ({searchKeyword=''})=>{
     }catch(err){
         return { error: err.response.data.message || err.message};
     }
-};
+});
 export const getProduct =  expressAsyncHandler( async (id) => {
     try {
         const response = await axios({
@@ -61,6 +61,73 @@ export const createProduct = async () =>{
         return {
             error: err.response.data.message || err.message
         };
+    }
+};
+
+export const createReview = async ( productId, review)=>{
+    try{
+        const {token}=getUserInfo();
+        const response = await axios({
+            url:`${apiUrl}/api/products/${productId}/reviews`,
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+            data: review,
+        });
+        if(response.statusText !== 'Created'){
+            throw new Error(response.data.message);
+        }
+        return response.data;
+    }catch (err){
+        return {error:err.response.data.message || err.message};
+    }
+};
+export const editReview = async (productId,{rating,comment})=>{
+    try{
+        const { token } =getUserInfo();
+        const response = await axios({
+            url: `${apiUrl}/api/products/${productId}/reviews/`,
+            method:'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+              },
+              data:{
+                rating,
+                comment
+            },
+        });
+        console.log(response.data);
+        if(response.statusText !== 'OK'){
+            throw new Error(response.data.message);
+        }
+        return response.data;
+    } catch (err){
+        return {error:err.response.data.message || err.message};
+    }
+};
+export const deleteReview = async (productId,reviewId)=>{
+    try{
+        const { token } =getUserInfo();
+        const response = await axios({
+            url: `${apiUrl}/api/products/${productId}/reviews/`,
+            method:'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+              },
+              data:{
+                _id:reviewId,
+              }
+        });
+        if(response.statusText !== 'OK'){
+            throw new Error(response.data.message);
+        }
+        return response.data;
+    } catch (err){
+        return {error: err.response.data.message || err.message};
     }
 };
 

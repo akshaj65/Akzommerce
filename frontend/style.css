@@ -137,6 +137,14 @@ header a:hover{
     font-size: 3rem;
     padding-left: 1rem;
 }
+.brand button{
+    font-size: 3rem;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
 footer{
     background-color: rgb(4, 87, 87);
     color: #ffffff;
@@ -533,6 +541,32 @@ form.search-form::after{
     clear: both;
     display: table;
 }
+@media only screen and (max-width: 600px){
+    .brand a{
+        font-size: 2rem;
+    }
+    .brand button{
+        font-size: 2rem;
+    }
+    .search{
+        width:auto;
+    }
+    form.search-form{
+        width: 18rem;
+    }
+    form.search-form button{
+        width: 20%;
+    }
+    form.search-form input,
+    form.search-form button{
+        padding: 0.5rem;
+    }
+    .header-links a{
+        font-size: 1rem;
+        padding: 0;
+    }
+    
+}
 
 /* Aside */
 aside{
@@ -586,11 +620,29 @@ ul.categories{
     background-color: #f0f0f0;
     color: #444444;
 }
-.brand button{
-    font-size: 3rem;
-    padding: 0.5rem;
-    background: none;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
+
+
+/* review */
+.review{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.review li{
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+.review li >div:nth-child(2){
+    color: #444444;
+font-size: 1.3rem;
+}
+.review-edit-button,
+.review-delete-button{
+    padding: 0.8rem;
+    font-size: 1.2rem;
+}
+
+/* adding a new line  */
+.new-line{
+    word-wrap: anywhere;
 }

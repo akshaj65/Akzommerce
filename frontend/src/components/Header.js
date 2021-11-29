@@ -18,7 +18,7 @@ const Header = {
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-            <div>
+            <div id="header-links" class="header-links">
             ${
                 name 
                 ?`<a href="/#/profile">${name}</a>`

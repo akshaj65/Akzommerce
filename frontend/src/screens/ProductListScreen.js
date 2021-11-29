@@ -20,6 +20,7 @@ const ProductListScreen =  {
             deleteButton.addEventListener('click', async ()=>{
                 if(confirm('Are you sure to delete this product?')){
                     showLoading()
+                    
                     const data= await deleteProduct(deleteButton.id);
                     if(data.error){
                         showMessage(data.error);
@@ -32,7 +33,7 @@ const ProductListScreen =  {
         });
     },
     render: async () =>{
-        const products = await getProducts();
+        const products = await getProducts('');
         return `
             <div class="dashboard">
                 ${DashboardMenu.render({selected:'products'})}
